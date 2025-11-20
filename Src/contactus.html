@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Us - Get in touch with Exton Tamil Palli administration" />
+    <title>Contact Us - எக்ஸ்டன் தமிழ் பள்ளி</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="/static/main.js" defer></script>
+</head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-section">
+            <a href="/index.html">
+              <img src="/images/etp-logo.png" alt="எக்ஸ்டன் தமிழ் பள்ளி" class="school-logo" width="55" height="55" loading="lazy">
+            </a>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="/index.html#home">Home</a></li>
+              <li><a href="/registration.html">Registration</a></li>
+              <li class="has-dropdown">
+                <a href="/index.html#parents">Parents</a>
+                <ul class="dropdown">
+                  <li><a href="/curriculum.html">Curriculum</a></li>
+                  <li><a href="/faq.html">FAQ</a></li>
+                  <li><a href="https://forms.office.com/r/JPiuNDsUTw" target="_blank">Leave Form</a></li>
+                  <li><a href="/library.html">Library</a></li>
+                  <li><a href="/tvaexams.html">TVA Exams</a></li>
+                </ul>
+              </li>
+              <li><a href="/calendar.html">Calendar</a></li>
+              <li><a href="https://forms.office.com/r/ZJF0rVi9As" target="_blank">Feedback/Enquiry</a></li>
+              <li class="has-dropdown">
+                <a href="/index.html#about">About Us</a>
+                <ul class="dropdown" id="team-years-menu">
+                  <!-- Years will be loaded dynamically -->
+                </ul>
+              </li>
+              <li><a href="/contactus.html" class="active">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content contact-us-page">
+      <div class="container">
+
+        <!-- Contact Us Section -->
+        <section class="section contact-us-section">
+          <h1 class="page-title"><span class="emoji-icon">📞</span> Contact Us</h1>
+          
+          <!-- Contact Cards -->
+          <div class="contact-info-section">
+            <h2 class="section-heading">Get in Touch</h2>
+            <p class="section-description">Have questions? Feel free to reach out to our team. We're here to help!</p>
+            
+            <div class="contacts-grid" id="contacts-grid">
+              <!-- Contacts will be loaded dynamically -->
+            </div>
+          </div>
+
+          <!-- Location Section -->
+          <div class="location-section">
+            <h2 class="section-heading">📍 Our Location</h2>
+            <div class="location-content">
+              <div class="location-info">
+                <div class="location-icon">🏫</div>
+                <div class="location-details">
+                  <h3>Exton Tamil Palli</h3>
+                  <p class="address" id="location-address">Loading...</p>
+                  <a href="#" class="directions-link" id="directions-link" target="_blank">
+                    Get Directions →
+                  </a>
+                </div>
+              </div>
+              
+              <div class="location-map" id="contact-map-container">
+                <!-- Map will be loaded dynamically -->
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+     <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>© TAGDV எக்ஸ்டன் தமிழ் பள்ளி</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

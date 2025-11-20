@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Academic Calendar - Exton Tamil Palli school events and important dates" />
+    <title>Calendar - எக்ஸ்டன் தமிழ் பள்ளி</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="/static/main.js" defer></script>
+</head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-section">
+            <a href="/index.html">
+              <img src="/images/etp-logo.png" alt="எக்ஸ்டன் தமிழ் பள்ளி" class="school-logo" width="55" height="55" loading="lazy">
+            </a>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="/index.html#home">Home</a></li>
+              <li><a href="/registration.html">Registration</a></li>
+              <li class="has-dropdown">
+                <a href="/index.html#parents">Parents</a>
+                <ul class="dropdown">
+                  <li><a href="/curriculum.html">Curriculum</a></li>
+                  <li><a href="/faq.html">FAQ</a></li>
+                  <li><a href="https://forms.office.com/r/JPiuNDsUTw" target="_blank">Leave Form</a></li>
+                  <li><a href="/library.html">Library</a></li>
+                  <li><a href="/tvaexams.html">TVA Exams</a></li>
+                </ul>
+              </li>
+              <li><a href="/calendar.html" class="active">Calendar</a></li>
+              <li><a href="https://forms.office.com/r/ZJF0rVi9As" target="_blank">Feedback/Enquiry</a></li>
+              <li class="has-dropdown">
+                <a href="/index.html#about">About Us</a>
+                <ul class="dropdown" id="team-years-menu">
+                  <!-- Years will be loaded dynamically -->
+                </ul>
+              </li>
+              <li><a href="/contactus.html">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content calendar-page">
+      <div class="container">
+
+        <!-- Calendar Section -->
+        <section class="section calendar-section">
+          <h1 class="page-title"><span class="emoji-icon">📅</span> Academic Calendar</h1>
+          
+          <!-- Academic Year -->
+          <div class="academic-year-badge" id="academic-year">
+            <span class="year-label">Academic Year:</span>
+            <span class="year-value" id="year-value">Loading...</span>
+          </div>
+
+          <!-- Legend -->
+          <div class="calendar-legend">
+            <h2 class="section-heading">Event Types</h2>
+            <div class="legend-grid">
+              <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></span>
+                <span class="legend-label">School Opening Day</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></span>
+                <span class="legend-label">School Working Day</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></span>
+                <span class="legend-label">School Holiday</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);"></span>
+                <span class="legend-label">Assessment Day</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></span>
+                <span class="legend-label">Annual Day</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);"></span>
+                <span class="legend-label">Last Working Day</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);"></span>
+                <span class="legend-label">Parent Teacher Conference</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendar Events -->
+          <div class="calendar-events" id="calendar-events">
+            <!-- Events will be loaded dynamically -->
+          </div>
+
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>© TAGDV எக்ஸ்டன் தமிழ் பள்ளி</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
