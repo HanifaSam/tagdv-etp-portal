@@ -401,22 +401,48 @@ async function loadTeamData() {
 function initMobileMenu() {
   const toggle = document.querySelector(".mobile-menu-toggle");
   const nav = document.querySelector(".main-nav");
-  const dropdowns = document.querySelectorAll(".has-dropdown");
 
-  toggle.addEventListener("click", () => {
+  if (!toggle || !nav) return;
+
+  // Toggle mobile menu
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
     nav.classList.toggle("active");
   });
 
-  dropdowns.forEach((dropdown) => {
-    dropdown.addEventListener("click", (e) => {
+  // Handle dropdown toggles - ONLY prevent default on parent links
+  const dropdownToggles = document.querySelectorAll(".has-dropdown > a");
+  dropdownToggles.forEach((parentLink) => {
+    parentLink.addEventListener("click", (e) => {
       if (window.innerWidth <= 968) {
-        e.preventDefault();
-        dropdown.classList.toggle("active");
+        // Only intercept if clicking the parent link itself
+        const clickTarget = e.target;
+        const isParentLinkClick = clickTarget === parentLink || 
+                                   (clickTarget.parentElement === parentLink && clickTarget.tagName !== 'A');
+        
+        if (isParentLinkClick) {
+          e.preventDefault();
+          e.stopPropagation();
+          const dropdown = parentLink.parentElement;
+          dropdown.classList.toggle("active");
+        }
       }
     });
   });
 
-  document.querySelectorAll('.main-nav a[href^="#"]').forEach((link) => {
+  // Close menu when clicking dropdown items - NO preventDefault, just close menu
+  document.querySelectorAll('.dropdown a').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      if (window.innerWidth <= 968) {
+        // Just close menu, don't interfere with navigation
+        nav.classList.remove("active");
+        document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('active'));
+      }
+    }, { once: false }); // Allow multiple clicks
+  });
+
+  // Close menu when clicking direct nav links
+  document.querySelectorAll('.main-nav > ul > li:not(.has-dropdown) > a').forEach((link) => {
     link.addEventListener("click", () => {
       if (window.innerWidth <= 968) {
         nav.classList.remove("active");
@@ -626,14 +652,25 @@ function initScrollAnimations() {
   }, observerOptions);
 
   // Add animation classes to sections
-  document
-    .querySelectorAll(
-      ".section, .announcement-card, .contact-card, .schedule-item"
-    )
-    .forEach((el) => {
-      el.classList.add("animate-on-scroll");
-      observer.observe(el);
-    });
+  const elementsToAnimate = document.querySelectorAll(
+    ".section, .announcement-card, .contact-card, .schedule-item"
+  );
+  
+  elementsToAnimate.forEach((el) => {
+    el.classList.add("animate-on-scroll");
+    observer.observe(el);
+    
+    // Fallback: If element is already in viewport (common on mobile/small pages),
+    // immediately animate it without waiting for scroll
+    const rect = el.getBoundingClientRect();
+    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    if (isInViewport) {
+      // Give it a moment for the page to settle, then animate
+      setTimeout(() => {
+        el.classList.add("animated");
+      }, 300);
+    }
+  });
 }
 
 function initHeaderScroll() {
