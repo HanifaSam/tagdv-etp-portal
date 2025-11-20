@@ -1,6 +1,6 @@
 async function loadAnnouncements() {
   try {
-    const response = await fetch("/data/announcements.json");
+    const response = await fetch("./data/announcements.json");
     const announcements = await response.json();
     const container = document.getElementById("announcements-container");
 
@@ -47,7 +47,7 @@ async function loadAnnouncements() {
 
 async function loadNotification() {
   try {
-    const response = await fetch("/data/notification.json");
+    const response = await fetch("./data/notification.json");
     const notification = await response.json();
     const container = document.getElementById("notification-container");
 
@@ -63,7 +63,7 @@ async function loadNotification() {
 
 async function loadSchedule() {
   try {
-    const response = await fetch("/data/schedule.json");
+    const response = await fetch("./data/schedule.json");
     const schedule = await response.json();
     const container = document.getElementById("schedule-container");
 
@@ -84,7 +84,7 @@ async function loadSchedule() {
 
 async function loadContacts() {
   try {
-    const response = await fetch("/data/contacts.json");
+    const response = await fetch("./data/contacts.json");
     const contacts = await response.json();
     const container = document.getElementById("contacts-container");
 
@@ -106,7 +106,7 @@ async function loadContacts() {
 
 async function loadContent() {
   try {
-    const response = await fetch("/data/content.json");
+    const response = await fetch("./data/content.json");
     const content = await response.json();
 
     const bullyingList = document.getElementById("bullying-list");
@@ -130,7 +130,7 @@ async function loadContent() {
 async function loadCalendarData() {
   try {
     console.log('Loading calendar data...');
-    const response = await fetch('/data/calendar.json?t=' + Date.now());
+    const response = await fetch('./data/calendar.json?t=' + Date.now());
     const data = await response.json();
     console.log('Calendar data loaded:', data);
 
@@ -270,14 +270,14 @@ async function loadContactUsData() {
 
 async function loadTeamData() {
   try {
-    const response = await fetch('/data/team.json?t=' + Date.now());
+    const response = await fetch('./data/team.json?t=' + Date.now());
     const data = await response.json();
     
     // Populate team years menu in all pages
     const teamYearsMenu = document.getElementById('team-years-menu');
     if (teamYearsMenu) {
       teamYearsMenu.innerHTML = data.academicYears.map(yearData => `
-        <li><a href="/team.html?year=${yearData.year}">${yearData.year}</a></li>
+        <li><a href="./team.html?year=${yearData.year}">${yearData.year}</a></li>
       `).join('');
     }
     
@@ -706,7 +706,7 @@ function initHeroInteractions() {
 
 async function loadRegistrationData() {
   try {
-    const response = await fetch("/data/registration.json");
+    const response = await fetch("./data/registration.json");
     const data = await response.json();
 
     // Update dropdown options with values from JSON
@@ -963,7 +963,7 @@ function initFeeCalculator(data) {
 
 async function loadRegistrationContacts() {
   try {
-    const response = await fetch("/data/contacts.json");
+    const response = await fetch("./data/contacts.json");
     const contacts = await response.json();
     const container = document.getElementById("registration-contacts");
 
@@ -998,15 +998,15 @@ async function loadRegistrationContacts() {
 async function loadFAQData() {
   try {
     // Load FAQ data
-    const faqResponse = await fetch('/data/faq.json');
+    const faqResponse = await fetch('./data/faq.json');
     const faqData = await faqResponse.json();
 
     // Load content data for location
-    const contentResponse = await fetch('/data/content.json');
+    const contentResponse = await fetch('./data/content.json');
     const contentData = await contentResponse.json();
 
     // Load schedule data for pickup times
-    const scheduleResponse = await fetch('/data/schedule.json');
+    const scheduleResponse = await fetch('./data/schedule.json');
     const scheduleData = await scheduleResponse.json();
 
     // Update location
