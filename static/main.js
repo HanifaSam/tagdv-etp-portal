@@ -220,11 +220,11 @@ function getEventClass(type) {
 async function loadContactUsData() {
   try {
     // Load contacts
-    const contactsResponse = await fetch('/data/contacts.json');
+    const contactsResponse = await fetch('./data/contacts.json');
     const contacts = await contactsResponse.json();
     
     // Load location from content
-    const contentResponse = await fetch('/data/content.json');
+    const contentResponse = await fetch('./data/content.json');
     const contentData = await contentResponse.json();
     
     // Populate contacts grid
