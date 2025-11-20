@@ -233,7 +233,7 @@ async function loadContactUsData() {
       contactsGrid.innerHTML = contacts.map(contact => `
         <div class="contact-card-large">
           <div class="contact-photo">
-            <img src="/${contact.photo}" alt="${contact.name}" onerror="this.src='/images/default-avatar.png'">
+            <img src="./${contact.photo}" alt="${contact.name}" onerror="this.src='./images/default-avatar.png'">
           </div>
           <h3 class="contact-name">${contact.name}</h3>
           <p class="contact-title">${contact.title}</p>
@@ -318,7 +318,7 @@ async function loadTeamData() {
         html += `
           <div class="core-team-card">
             <div class="core-team-photo">
-              <img src="/${member.photo}" alt="${member.name}" onerror="this.src='/images/default-avatar.png'">
+              <img src="./${member.photo}" alt="${member.name}" onerror="this.src='./images/default-avatar.png'">
             </div>
             <h3 class="core-team-name">${member.name}</h3>
             <p class="core-team-role">${member.role}</p>
@@ -471,7 +471,7 @@ function initActiveNav() {
       link.classList.remove("active");
       if (
         link.getAttribute("href") === "registration.html" ||
-        link.getAttribute("href") === "/registration.html"
+        link.getAttribute("href") === "./registration.html"
       ) {
         link.classList.add("active");
       }
@@ -486,7 +486,7 @@ function initActiveNav() {
       link.classList.remove("active");
       if (
         link.getAttribute("href") === "calendar.html" ||
-        link.getAttribute("href") === "/calendar.html"
+        link.getAttribute("href") === "./calendar.html"
       ) {
         link.classList.add("active");
       }
@@ -501,7 +501,7 @@ function initActiveNav() {
       link.classList.remove("active");
       if (
         link.getAttribute("href") === "contactus.html" ||
-        link.getAttribute("href") === "/contactus.html"
+        link.getAttribute("href") === "./contactus.html"
       ) {
         link.classList.add("active");
       }
@@ -517,7 +517,7 @@ function initActiveNav() {
       const href = link.getAttribute("href");
       
       // Highlight parent "About Us" link
-      if (href === "#about" || href === "/index.html#about") {
+      if (href === "#about" || href === "./index.html#about") {
         link.classList.add("active");
       }
     });
@@ -543,7 +543,7 @@ function initActiveNav() {
       const href = link.getAttribute("href");
       
       // Highlight parent "Parents" link
-      if (href === "#parents" || href === "/index.html#parents") {
+      if (href === "#parents" || href === "./index.html#parents") {
         link.classList.add("active");
       }
       // The specific page link is already marked active in the HTML
