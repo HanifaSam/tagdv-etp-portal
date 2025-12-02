@@ -1725,6 +1725,17 @@ html {
   font-weight: 600;
 }
 
+/* Color coding for main fees */
+.cost-item.school-fee {
+  color: #2b6cb0; /* blue */
+  font-weight: 600;
+}
+
+.cost-item.membership-fee {
+  color: #2f855a; /* green */
+  font-weight: 600;
+}
+
 .cost-item.payment-fee {
   color: #f39c12;
   font-size: 14px;
@@ -3064,7 +3075,6 @@ html {
     word-break: break-all;
   }
 }
-}
 
 @media (max-width: 640px) {
   .container {
@@ -3287,13 +3297,21 @@ html {
     padding: calc(var(--spacing-unit) * 1.25);
     margin-bottom: calc(var(--spacing-unit) * 0.75);
     font-size: 15px;
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 1);
+  }
+
+  .cost-item span:first-child {
+    flex: 1;
   }
 
   .cost-item span:last-child {
-    align-self: flex-end;
-    margin-top: calc(var(--spacing-unit) * 0.5);
+    flex: 0 0 auto;
+    text-align: right;
+    min-width: 60px;
   }
 
   .total-amount {
